@@ -44,6 +44,11 @@ const ToDoList = () => {
         setEditedTask('');
     };
 
+    const handleDeleteClick = (index) => {
+        const updatedTasks = tasks.filter((task, i) => i !== index);
+        setTasks(updatedTasks);
+    };
+
     return (
         <div className="todo-container">
             <h1 className="todo-title">To-Do List</h1>
@@ -77,6 +82,7 @@ const ToDoList = () => {
                             <>
                                 <span onClick={() => toggleTaskCompletion(index)} className="task-text">{task.text}</span>
                                 <button onClick={() => handleEditClick(index)} className="edit-button">Edit</button>
+                                <button onClick={() => handleDeleteClick(index)} className="delete-button">Delete</button>
                             </>
                         )}
                     </li>

@@ -85,6 +85,11 @@
   color: #999;
 }
 
+/* Style for task text */
+.task-text {
+  flex: 1;
+}
+
 /* Style for edit input and save button */
 .edit-input {
   flex: 1;
@@ -106,6 +111,7 @@
   color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-left: 10px;
 }
 
 .save-button:hover {
@@ -122,8 +128,25 @@
   color: #242424;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-right: 10px;
 }
 
 .edit-button:hover {
   background-color: #e0a800;
+}
+
+/* Style for delete button */
+.delete-button {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
 }
