@@ -1,0 +1,83 @@
+/* Center the to-do list container */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #2e2e2e;
+  color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the title */
+.todo-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ff6f61; /* Vibrant coral color */
+  text-shadow: 2px 2px #000;
+}
+
+/* Style the form and input */
+.todo-form {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #333;
+  color: #f9f9f9;
+}
+
+.todo-button {
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6f61;
+  color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.todo-button:hover {
+  background-color: #e55a50;
+}
+
+/* Style the to-do list */
+.todo-list {
+  list-style-type: disc; /* Use disc for bullet points */
+  padding-left: 20px; /* Indent list to show bullet points */
+  width: 100%;
+}
+
+/* Style individual to-do items */
+.todo-item {
+  padding: 15px;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+  transition: background-color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #333;
+}
+
+.todo-item.completed {
+  text-decoration: line-through;
+  color: #999;
+}
