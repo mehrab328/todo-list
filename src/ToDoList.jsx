@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import './App.css'
+import "./App.css";
 
 const ToDoList = () => {
-    // Define state for tasks and new task input
     const [tasks, setTasks] = useState([]);
-    const [newTask, setNewTask] = useState('')
+    const [newTask, setNewTask] = useState('');
+    const [isEditing, setIsEditing] = useState(null);
+    const [editedTask, setEditedTask] = useState('');
 
-    // Handle input change
     const handleInputChange = (e) => {
         setNewTask(e.target.value);
     };
 
-    // Handle form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (newTask.trim() !== '') {
@@ -20,12 +19,29 @@ const ToDoList = () => {
         }
     };
 
-    // Handle task completion toggle
     const toggleTaskCompletion = (index) => {
         const updatedTasks = tasks.map((task, i) =>
             i === index ? { ...task, completed: !task.completed } : task
         );
         setTasks(updatedTasks);
+    };
+
+    const handleEditClick = (index) => {
+        setIsEditing(index);
+        setEditedTask(tasks[index].text);
+    };
+
+    const handleEditChange = (e) => {
+        setEditedTask(e.target.value);
+    };
+
+    const handleEditSubmit = (index) => {
+        const updatedTasks = tasks.map((task, i) =>
+            i === index ? { ...task, text: editedTask } : task
+        );
+        setTasks(updatedTasks);
+        setIsEditing(null);
+        setEditedTask('');
     };
 
     return (
@@ -47,7 +63,22 @@ const ToDoList = () => {
                         key={index}
                         className={`todo-item ${task.completed ? 'completed' : ''}`}
                     >
-                        <span onClick={() => toggleTaskCompletion(index)}>{task.text}</span>
+                        {isEditing === index ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={editedTask}
+                                    onChange={handleEditChange}
+                                    className="edit-input"
+                                />
+                                <button onClick={() => handleEditSubmit(index)} className="save-button">Save</button>
+                            </>
+                        ) : (
+                            <>
+                                <span onClick={() => toggleTaskCompletion(index)} className="task-text">{task.text}</span>
+                                <button onClick={() => handleEditClick(index)} className="edit-button">Edit</button>
+                            </>
+                        )}
                     </li>
                 ))}
             </ul>

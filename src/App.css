@@ -66,6 +66,9 @@
 
 /* Style individual to-do items */
 .todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 15px;
   font-size: 1.5rem;
   border-bottom: 1px solid #555;
@@ -77,7 +80,50 @@
   background-color: #333;
 }
 
-.todo-item.completed {
+.todo-item.completed .task-text {
   text-decoration: line-through;
   color: #999;
+}
+
+/* Style for edit input and save button */
+.edit-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #444;
+  color: #f9f9f9;
+}
+
+.save-button {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+/* Style for edit button */
+.edit-button {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffc107;
+  color: #242424;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
 }
